@@ -337,7 +337,24 @@ void modify_teacher()
 // 查询教师信息（按工号）
 void query_teacher()
 {
-
+    char id[MAX_ID_LEN];
+    printf("请输入要查询的教师工号：");
+    scanf("%s",id);
+    int index=find_teacher_by_id(id);
+    if(index==-1)
+    {
+        printf("未找到该工号的教师！\n");
+    }
+    Teacher *t=&teacher[index];
+    printf("\n********** 教师信息 **********\n");
+    printf("工号: %s\n",t->id);
+    printf("姓名: %s\n",t->name);
+    printf("年龄: %s\n",t->age);
+    printf("性别: %s\n",t->gender=="M"?"男":"女");
+    printf("基础工资: %.2f 元\n",t->salary);
+    printf("奖金: %.2f 元\n",t->bonus);
+    printf("总薪资: %.2f 元\n",t->salary + t->bonus);
+    printf("*******************************\n");
 }
 
 //---------------------------------------------------------------------------------------//
