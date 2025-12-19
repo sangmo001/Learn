@@ -358,6 +358,25 @@ void query_teacher()
 // 显示所有教师信息
 void show_all_teachers()
 {
-
+    if (teacher_count == 0)
+    {
+        printf("暂无教师信息！\n");
+        return;
+    }
+    printf("********** 所有教师信息 **********\n");
+    printf("工号\t姓名\t年龄\t性别\t基本工资\t奖金\t总薪资\n");
+    printf("-----------------------------------\n");
+    for (int i = 0; i < MAX_TEACHERS; i++)
+    {
+        if (!teachers[i].is_deleted && teachers[i].id[0] != '\0')
+        {
+            Teacher t = teachers[i];
+            printf("%s\t%s\t%d\t%s\t%.2f\t\t%.2f\t%.2f\n",
+                   t.id, t.name, t.age,
+                   t.gender == 'M' ? "男" : "女",
+                   t.salary, t.bonus, t.salary + t.bonus);
+        }
+    }
+    printf("**********************************\n");
 }
 //---------------------------------------------------------------------------------------//
