@@ -216,7 +216,18 @@ void add_teacher()
 // 删除教师信息（逻辑删除，标记is_deleted）
 void delete_teacher()
 {
-
+char id[MAX_ID_LEN];
+	printf("请输入要删除的教师工号：");
+	scanf("%s",id);
+	int index = find_teacher_by_id(id);
+	if(index == -1)
+	{
+		printf("未找到该教师，删除失败！\n");
+		return ;
+	}
+	teachers[index].is_deleted = 1;
+	teacher_count--;
+	printf("教师信息删除成功！\n");
 }
 
 //---------------------------------------------------------------------------------------//
