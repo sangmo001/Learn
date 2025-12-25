@@ -361,7 +361,7 @@ void query_teacher()
     {
         printf("未找到该工号的教师！\n");
     }
-    Teacher *t=&teacher[index];
+    Teacher *t=&teachers[index];
     printf("\n********** 教师信息 **********\n");
     printf("工号: %s\n",t->id);
     printf("姓名: %s\n",t->name);
@@ -386,7 +386,7 @@ void show_all_teachers()
     printf("********** 所有教师信息 **********\n");
     printf("工号\t姓名\t年龄\t性别\t基本工资\t奖金\t总薪资\n");
     printf("-----------------------------------\n");
-    for (int i = 0; i < MAX_TEACHERS; i++)
+    for (int i = 0; i < MAX_TEACHER; i++)
     {
         if (!teachers[i].is_deleted && teachers[i].id[0] != '\0')
         {
@@ -400,3 +400,4 @@ void show_all_teachers()
     printf("**********************************\n");
 }
 //---------------------------------------------------------------------------------------//
+
